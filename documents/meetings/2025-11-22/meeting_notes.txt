@@ -1,0 +1,64 @@
+Notes:
+- Set up a Teams call for next time; Slack was problematic
+- Adam suggested meeting once a month
+	Kristen suggested a meeting around the 8th Dec to talk about the brief
+	Adam and Kristen suggested meeting before the 7th Dec before the deadline
+	Mirza suggested at least every two weeks
+	Andi recommended every two weeks as well
+
+- 9am on Wednesday to discuss the brief
+	Kristen will send a Teams meeting around
+
+> 3D Game
+- Can divide game up (environment, lighting, etc.)
+Mirza votes for a 2D game due to fitting more content and story
+
+> Adam suggested using Synty Studio's 3D assets
+
+
+Andi - Happy with the game as long as we can deliver it
+Mirza - Doesn't think it's a bad idea
+
+Adam; top-down zombie game, solve a 10-min puzzle to get a zombie game
+	2.5d platformer
+
+Kristen; Portal-like game. 3D env, a few rooms - walking with a portal gun
+	Solving puzzles (shooting switch, placing/moving block)
+	AI companion to help puzzles
+	Concise, contrived, feasible
+	
+	Super complicated game may be too challenging to build the story (lighting, story, engagement)
+	Easy to work with animations (doors etc.)
+	Procedural dungeon generation (2D, 3D generation). Kristen has a book for that
+
+Mirza; Rogue-like / rogue-lite games like "Hades"
+	Not a typical rogue-like
+	Four people trapped inside a death loop (solo)
+		Text-based combat?
+		Turn based battle system
+	Movement; move all four players in one block?
+		Tile-based movement
+		Based on directional movement
+	If you die, you revive from the start again
+	Dungeon setting, have to traverse the dungeon
+	Every time you die, your stats and classes are randomised
+		Fixed class? Main classes is fixed, one tank, one DPS, one support, one flex (fixed)
+		Sub-classes are randomised - each playthrough is different
+		Stats are slightly randomised as well (luck, etc)
+	Dungeons are not randomised; these are fixed
+	Stuck in a death-loop, the dungeon doesn't randomise
+	Small dialogue options (dialogue system)
+	Puzzles?
+	> Classes
+		- Mage: Frost mage first time, necromancer next time
+
+Randomiser
+	Mad scientist - slightly red glow, red glowing items may be good for you?
+	Necromancer - greenish things will be good for you
+
+Kristen is happy to go with the assets that Adam has (Synty Studios, animations, etc.)
+	Adam to set up a minimum 3D game project
+	Upload the assets into the project
+
+Kristen to set up a Teams call for Wednesday 10th
+	
