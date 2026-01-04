@@ -23,6 +23,11 @@
 # Recordings can get excessive in size
 /[Rr]ecordings/
 
+# Lighting data can get excessive in size
+/[Aa]ssets/[Pp]roject/[Ss]cenes/*/LightingData.asset
+/[Aa]ssets/[Pp]roject/[Ss]cenes/*/Light*.*
+/[Aa]ssets/[Pp]roject/[Ss]cenes/*/Reflection*.*
+
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # /[Aa]ssets/AssetStoreTools*
 
