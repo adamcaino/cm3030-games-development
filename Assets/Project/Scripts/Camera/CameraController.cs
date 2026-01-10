@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
     [Header("Target Settings")]
-    [SerializeField] Transform target; // The player to follow
+    [SerializeField] Transform target; // The transform to follow (e.g., the player)
 
     [Header("Camera Settings")]
     [SerializeField] float distance = 10f; // Distance from target
@@ -15,13 +16,12 @@ public class CameraController : MonoBehaviour
     [SerializeField] float smoothSpeed = 5f; // How smoothly the camera follows
 
     [Header("Camera Angle")]
-    [SerializeField] Vector3 offset = new Vector3(0f, 0f, 0f); // Height offset above target (look-at point)
     [SerializeField] float verticalAngle = 45f; // Vertical angle of camera (in degrees)
 
     [Header("Orbit Settings")]
     [SerializeField] float orbitSpeed = 0.1f; // How fast the camera orbits
     [SerializeField] bool invertOrbitHorizontal = false; // Inverts left/right orbit direction
-    [SerializeField] bool invertOrbitVertical = false; // Invert up/down orbit direction
+    [SerializeField] bool invertOrbitVertical = false; // Inverts up/down orbit direction
     [SerializeField] float minVerticalAngle = 10f; // Minimum vertical angle (looking down)
     [SerializeField] float maxVerticalAngle = 80f; // Maximum vertical angle (looking up)
 
@@ -63,6 +63,12 @@ public class CameraController : MonoBehaviour
         // Handle zoom input
         HandleZoom();
 
+        // Handle orbit input
+        HandleOrbit();
+    }
+
+    private void HandleOrbit()
+    {
         // Calculate orbit angles (horizontal and vertical)
         if (isOrbiting)
         {
@@ -83,24 +89,24 @@ public class CameraController : MonoBehaviour
         }
 
         // Calculate camera position using spherical coordinates
-        // This ensures zoom moves in a straight line toward/away from target
-        Vector3 lookAtPoint = target.position + offset;
+        // This ensures zooming moves in a straight line towards/away from target
+        Vector3 lookAtPoint = target.position;
 
-        // Convert angles to radians (use current vertical angle instead of fixed verticalAngle)
+        // Convert angles to radians
         float horizontalRad = currentAngle * Mathf.Deg2Rad;
         float verticalRad = currentVerticalAngle * Mathf.Deg2Rad;
 
-        // Calculate direction using spherical coordinates (from lookAtPoint to camera)
+        // Calculate direction (from 'lookAtPoint' to camera) using spherical coordinates
         Vector3 direction = new Vector3(
             Mathf.Sin(horizontalRad) * Mathf.Cos(verticalRad),
             Mathf.Sin(verticalRad),
-            -Mathf.Cos(horizontalRad) * Mathf.Cos(verticalRad) // Negative Z for behind player
+            -Mathf.Cos(horizontalRad) * Mathf.Cos(verticalRad) // Negative Z as the camera is behind the target
         );
 
-        // Position camera at distance along that direction
+        // Position the camera at the distance along the direction calculated above
         Vector3 targetPosition = lookAtPoint + direction * distance;
 
-        // When orbiting, move directly to maintain distance. Otherwise use a smooth follow.
+        // While orbiting, move directly to maintain distance - otherwise use a smooth follow with lerp.
         if (isOrbiting)
         {
             transform.position = targetPosition;
@@ -124,6 +130,8 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    #region InputSystemCallbacks
+
     // Input System callback for scroll wheel
     public void OnZoom(InputValue value)
     {
@@ -146,4 +154,6 @@ public class CameraController : MonoBehaviour
             mouseDelta = value.Get<Vector2>();
         }
     }
+
+    #endregion
 }
